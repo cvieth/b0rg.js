@@ -11,6 +11,10 @@ var routes = require('./routes/index');
 var assimilate = require('./routes/assimilate');
 var app = express();
 
+var loki = require('lokijs');
+db = new loki('test.json');
+db.saveToDisk();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -63,3 +67,21 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
+process.stdin.resume();//so the program will not close instantly
+
+function exitHandler(options, err) {
+    console.log("foo");
+    if (options.cleanup) console.log('clean');
+    if (err) console.log(err.stack);
+    if (options.exit) process.exit();
+}
+
+//do something when app is closing
+process.on('exit', exitHandler.bind(null,{cleanup:true}));
+
+//catches ctrl+c event
+process.on('SIGINT', exitHandler.bind(null, {exit:true}));
+
+//catches uncaught exceptions
+process.on('uncaughtException', exitHandler.bind(null, {exit:true}));
