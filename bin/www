@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var debug = require('debug')('vip3r.js');
+var debug = require('debug')('b0rg.js');
 var app = require('../app');
 
 app.set('port', process.env.PORT || 3000);
