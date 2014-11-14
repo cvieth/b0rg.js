@@ -1,4 +1,4 @@
-vip3r.js
+b0rg.js
 ========
 
-Client Remote Control Tool
+Remote Web-Browser exploration Tool
