@@ -84,5 +84,36 @@ dr0ne.interLinkDisconnect = function () {
     clearInterval(dr0ne.interLinkInterval);
 };
 
+
+/**
+ * Canvas Tracking Implementation
+ * @param salt
+ * @returns {string}
+ */
+
+dr0ne.getIdentifier = function (salt) {
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext("2d");
+    context.fillText(salt, 20, 20);
+    var data = canvas.toDataURL("image/png");
+    var b64 = data.replace("data:image/png;base64,", "");
+    var bin = atob(b64);
+    var i, l, o = '',
+        n;
+
+    s = bin.slice(-16, -12);
+    s += '';
+
+    for (i = 0, l = s.length; i < l; i++) {
+        n = s.charCodeAt(i)
+            .toString(16);
+        o += n.length < 2 ? '0' + n : n;
+    }
+    return o;
+}
+
+/**
+ * Run Assimilation
+ */
 dr0ne.assimilate();
 
