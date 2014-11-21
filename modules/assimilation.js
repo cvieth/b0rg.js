@@ -76,7 +76,7 @@ dr0ne.interLinkCheck = function () {
     //dr0ne.log('Checking interLink ...');
     dr0ne.interLinkRequestCounter = dr0ne.interLinkRequestCounter + 1;
     dr0ne.log('Request Count: ' + dr0ne.interLinkRequestCounter);
-    dr0ne.interLink.open("GET", "/interlink?t=" + Math.random(), true);
+    dr0ne.interLink.open("GET", "/interlink?d="+dr0ne.getIdentifier()+"&t=" + Math.random(), true);
     dr0ne.interLink.send();
 };
 

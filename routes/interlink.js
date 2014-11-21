@@ -8,11 +8,30 @@ router.get('/', function (req, res) {
     var response = {};
     response.session = req.sessionID;
     response.jobs = [];
-    response.jobs.push('console.log("WORKS!");');
+    //response.jobs.push('console.log("WORKS!");');
+    //response.jobs.push('alert("Master I am here to server you!")');
     //res.json("OK");
     res.json(response);
-    console.log('[interLink] Request from :' + req.sessionID);
+    //console.log('[interLink] Request from :' + req.sessionID);
+    //console.log(req.params);
+    //console.log(req.param('d'));
+    //console.log(db);
     //console.log(req.session);
+
+    //console.log(drones);
+    var droneData = drones.findOne({'name': req.param('d')});
+    if (droneData.length == 0) {
+        console.log("Adding drone ...");
+        drones.insert({name: req.param('d'), session: req.sessionID});
+        //drones.save();
+        hive.save(function() {
+            console.log("Wrote HIVE to disk!")
+        });
+    } else {
+       // console.log("Drone already known ...");
+    }
+    //console.log(droneData.length);
+//console.log(fooo);
 });
 
 module.exports = router;

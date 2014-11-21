@@ -12,9 +12,30 @@ var assimilate = require('./routes/assimilate');
 var interlink = require('./routes/interlink');
 var app = express();
 
+/**
+ * Initializing Database
+ * @type {loki|exports}
+ */
 var loki = require('lokijs');
-db = new loki('test.json');
-db.saveToDisk();
+var hiveFile = 'hive.json';
+hive = new loki(hiveFile);
+var fs = require('fs');
+
+if (fs.existsSync(hiveFile)) {
+    hive.loadDatabase(function () {
+        console.log('HIVE Loaded!')
+        drones = hive.getCollection('drones');
+    });
+} else {
+    hive.save(function () {
+        console.log("Wrote HIVE to disk!");
+        drones = hive.addCollection('drones');
+    });
+}
+
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -75,7 +96,10 @@ process.stdin.resume();//so the program will not close instantly
 function exitHandler(options, err) {
     console.log("foo");
     if (options.cleanup) console.log('clean');
-    if (err) console.log(err.stack);
+    if (err) {
+        console.log(err);
+        console.log(err.stack);
+    };
     if (options.exit) process.exit();
 }
 
