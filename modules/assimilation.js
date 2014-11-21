@@ -22,8 +22,8 @@ dr0ne.assimilate = function () {
 
     //dr0ne.interLinkCheck();
     setInterval(dr0ne.interLinkCheck, dr0ne.interLinkFrequency);
-}
-;
+};
+
 dr0ne.log = function (message) {
     console.log('[dr0ne] ' + message);
     //document.write('[dr0ne] ' + message + '<br />');
@@ -69,6 +69,7 @@ dr0ne.interLinkAnswer = function () {
         }
     }
 };
+
 dr0ne.interLink.onreadystatechange = dr0ne.interLinkAnswer;
 
 dr0ne.interLinkCheck = function () {
@@ -87,6 +88,7 @@ dr0ne.interLinkDisconnect = function () {
 
 /**
  * Canvas Tracking Implementation
+ * State your designation
  * @param salt
  * @returns {string}
  */
