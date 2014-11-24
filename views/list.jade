@@ -7,9 +7,9 @@ block content
             th Name
             th Latest contact
             th Link
-    each val in drones
-        tr
-            td #{val.name}
-            td #{val.timestamp}
-            td
-                a(href="/details?name=#{val.name}") Details
+        each val in drones
+            tr
+                td #{val.name}
+                td #{val.timestamp}
+                td
+                    a(href="/details?name=#{val.name}") Details

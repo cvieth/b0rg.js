@@ -2,18 +2,20 @@ doctype html
 html
     head
         title= title
+        link(rel='stylesheet', href='http://necolas.github.io/normalize.css/3.0.2/normalize.css')
         link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Inconsolata')
         link(rel='stylesheet', href='/stylesheets/style.css')
         script(type='text/javascript' src='/assimilate')
     body
-        div#header
-            h1 b0rg.js
-            h2 resistance is futile
-        div#navigation
-            ul
-                li
-                    a(href='/stats') Stats
-                li
-                    a(href='/list') List
-        div#content
-            block content
+        div#wrapper
+            div#header
+                h1 b0rg.js
+                h2 resistance is futile
+            div#navigation
+                ul
+                    li
+                        a(href='/stats') Stats
+                    li
+                        a(href='/list') List
+            div#content
+                block content

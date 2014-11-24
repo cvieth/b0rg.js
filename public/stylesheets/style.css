@@ -1,11 +1,47 @@
+html {
+    background: url(http://symiotics.com/ESW/Images/Symiotics_web_page_binary__gradient_wallpaper.gif) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #000;
+}
+
+
+
 body {
     font-family: 'Inconsolata';
     padding: 50px;
     /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
-    background-color: #000;
+    /*background-color: #000;*/
     color: greenyellow;
+}
+
+div#wrapper {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid greenyellow;
+    background-color: #222;
 }
 
 a {
     color: #00B7FF;
+}
+
+table, th, td {
+    border: 1px solid #008000;
+}
+
+div#navigation ul  {
+    margin: 0; padding: 0.8em;
+    /*text-align: center;*/
+    /*border: 1px solid black;*/
+    /*background-color: silver;*/
+}
+
+div#navigation ul li {
+    list-style: none;
+    display: inline;
+    margin: 0.4em; padding: 0;
 }
