@@ -7,14 +7,15 @@ html {
     background-color: #000;
 }
 
-
-
 body {
     font-family: 'Inconsolata';
     padding: 50px;
     /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
     /*background-color: #000;*/
     color: greenyellow;
+}
+div#header {
+    padding: 20px;
 }
 
 div#wrapper {
@@ -25,6 +26,33 @@ div#wrapper {
     background-color: #222;
 }
 
+div#navigation {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    height: 30px;
+}
+
+div#navigation ul {
+    margin: 0;
+    /*padding: 0.8em;*/
+    padding: 0;
+    margin-top: 5px;
+    /*text-align: center;*/
+    /*border: 1px solid black;*/
+    /*background-color: silver;*/
+}
+
+div#content {
+    padding: 10px;
+    text-align: center;
+}
+
+div#content input {
+
+    background-color: #666;
+    width: 60%;
+}
+
 a {
     color: #00B7FF;
 }
@@ -33,15 +61,11 @@ table, th, td {
     border: 1px solid #008000;
 }
 
-div#navigation ul  {
-    margin: 0; padding: 0.8em;
-    /*text-align: center;*/
-    /*border: 1px solid black;*/
-    /*background-color: silver;*/
-}
+
 
 div#navigation ul li {
     list-style: none;
     display: inline;
-    margin: 0.4em; padding: 0;
+    margin: 0.4em;
+    padding: 0;
 }
