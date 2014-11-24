@@ -22,7 +22,10 @@ router.get('/', function (req, res) {
     var droneData = drones.findOne({'name': req.param('d')});
     if (droneData.length == 0) {
         console.log("Adding drone ...");
-        drones.insert({name: req.param('d'), session: req.sessionID});
+        drones.insert({
+            name: req.param('d'),
+            session: req.sessionID
+            timestamp: new Date().toString()});
         //drones.save();
         hive.save(function() {
             console.log("Wrote HIVE to disk!")

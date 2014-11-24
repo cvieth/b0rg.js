@@ -17,8 +17,9 @@ router.get('/stats', function(req, res) {
 });
 
 router.get('/list', function(req, res) {
+    console.log(drones);
     res.render('list', {
-        drones: drones
+        drones: drones.data
     });
 });
 
