@@ -24,8 +24,16 @@ router.get('/list', function(req, res) {
 });
 
 router.get('/details', function(req, res) {
-    res.render('details', {
-    });
+    var currentDrone = drones.findOne({'name': req.param('name')});
+    console.log(currentDrone);
+    if (currentDrone.length == 0) {
+
+    } else {
+        res.render('details', {
+            drone: currentDrone
+        });
+    }
+
 });
 
 module.exports = router;

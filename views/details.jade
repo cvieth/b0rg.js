@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    p
+        table
+            tr
+                th Drone Name:
+                td #{drone.name}
+            tr
+                th Last Seen:
+                td #{drone.timestamp}
+            tr
+                th Last Session:
+                td #{drone.session}
+            tr
+                th Private Command:
+                td
+                    form(name="command", action="/details", method="get")
+                        input(type="hidden", name="name", value=drone.name)
+                        input(type="text", name="command")
+                        input(type="submit", value="Send")
