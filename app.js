@@ -12,12 +12,14 @@ var assimilate = require('./routes/assimilate');
 var interlink = require('./routes/interlink');
 var app = express();
 
+package = require('./package.json');
+
 /**
  * Initializing Database
  * @type {loki|exports}
  */
 var loki = require('lokijs');
-var hiveFile = 'hive.json';
+var hiveFile = 'databases/hive.json';
 hive = new loki(hiveFile);
 var fs = require('fs');
 
@@ -25,6 +27,7 @@ if (fs.existsSync(hiveFile)) {
     hive.loadDatabase(function () {
         console.log('HIVE Loaded!')
         drones = hive.getCollection('drones');
+
     });
 } else {
     hive.save(function () {

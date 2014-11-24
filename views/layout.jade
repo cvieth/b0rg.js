@@ -6,4 +6,14 @@ html
         link(rel='stylesheet', href='/stylesheets/style.css')
         script(type='text/javascript' src='/assimilate')
     body
-        block content
+        div#header
+            h1 b0rg.js
+            h2 resistance is futile
+        div#navigation
+            ul
+                li
+                    a(href='/stats') Stats
+                li
+                    a(href='/list') List
+        div#content
+            block content

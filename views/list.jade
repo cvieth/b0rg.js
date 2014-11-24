@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h3 List
+    table
+        tr
+            th Name
+            th Latest contact
+            th Link
+        tr
+            td ABCD
+            td 24.11.2014 12:23:23
+            td
+                a(href="/details?name=ABCD") Details
+    div#foo
+        #{drones}
