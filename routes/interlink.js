@@ -24,14 +24,19 @@ router.get('/', function (req, res) {
         console.log("Adding drone ...");
         drones.insert({
             name: req.param('d'),
-            session: req.sessionID
+            session: req.sessionID,
             timestamp: new Date().toString()});
         //drones.save();
         hive.save(function() {
             console.log("Wrote HIVE to disk!")
         });
     } else {
+        droneData.timestamp = new Date().toString();
+        droneData.session = req.sessionID;
        // console.log("Drone already known ...");
+        hive.save(function() {
+            console.log("Wrote HIVE to disk!")
+        });
     }
     //console.log(droneData.length);
 //console.log(fooo);
