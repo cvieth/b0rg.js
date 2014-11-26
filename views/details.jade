@@ -22,3 +22,10 @@ block content
                         input(type="hidden", name="name", value=drone.name)
                         input(type="text", name="command")
                         input(type="submit", value="Send")
+             tr
+                 th Job Done
+                 th Job Source
+            each job in drone.jobs
+                tr
+                    td #{job.done}
+                    td #{job.src}
