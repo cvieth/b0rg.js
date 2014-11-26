@@ -13,6 +13,9 @@ block content
                 th Last Session:
                 td #{drone.session}
             tr
+                th Last remote Adress:
+                td #{drone.remoteAddress}
+            tr
                 th Private Command:
                 td
                     form(name="command", action="/details", method="get")

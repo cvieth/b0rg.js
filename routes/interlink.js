@@ -19,22 +19,29 @@ router.get('/', function (req, res) {
     //console.log(req.session);
 
     //console.log(drones);
+
+    var remoteAddress = (req.headers['x-forwarded-for'] || req.connection.remoteAddress);
+
     var droneData = drones.findOne({'name': req.param('d')});
     if (droneData.length == 0) {
         console.log("Adding drone ...");
         drones.insert({
             name: req.param('d'),
             session: req.sessionID,
-            timestamp: new Date().toString()});
+            timestamp: new Date().toString(),
+            remoteAddress: remoteAddress
+        });
+
         //drones.save();
-        hive.save(function() {
+        hive.save(function () {
             console.log("Wrote HIVE to disk!")
         });
     } else {
         droneData.timestamp = new Date().toString();
         droneData.session = req.sessionID;
-       // console.log("Drone already known ...");
-        hive.save(function() {
+        droneData.remoteAddress = remoteAddress;
+        // console.log("Drone already known ...");
+        hive.save(function () {
             console.log("Wrote HIVE to disk!")
         });
     }
