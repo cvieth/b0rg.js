@@ -15,6 +15,7 @@
   },
   "private": true,
   "scripts": {
+    "test": "gulp",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -27,5 +28,11 @@
     "jade": "~1.6.0",
     "express-session": "~1.9.1",
     "lokijs": "~1.0.2"
+  },
+  "devDependencies": {
+    "gulp": "~3.5.1",
+    "gulp-jshint": "^1.9.2",
+    "gulp-util": "~2.2.14",
+    "jshint-stylish": "^1.0.0"
   }
 }
