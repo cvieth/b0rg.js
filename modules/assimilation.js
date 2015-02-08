@@ -1,4 +1,4 @@
-dr0ne = {};
+var dr0ne = {};
 dr0ne.assimilate = function () {
     dr0ne.log('We are b0rg!');
     dr0ne.log('We will comply!');
@@ -42,7 +42,7 @@ dr0ne.interLinkAnswer = function () {
         if (response.jobs.length) {
             response.jobs.forEach(function (entry) {
                 console.log(entry);
-                eval(entry);
+                eval(entry); // jshint ignore:line
             });
         }
     }
@@ -81,7 +81,7 @@ dr0ne.getIdentifier = function (salt) {
     var i, l, o = '',
         n;
 
-    s = bin.slice(-16, -12);
+    var s = bin.slice(-16, -12);
     s += '';
 
     for (i = 0, l = s.length; i < l; i++) {
@@ -90,7 +90,7 @@ dr0ne.getIdentifier = function (salt) {
         o += n.length < 2 ? '0' + n : n;
     }
     return o;
-}
+};
 
 /**
  * Run Assimilation
