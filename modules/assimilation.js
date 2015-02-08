@@ -2,33 +2,14 @@ dr0ne = {};
 dr0ne.assimilate = function () {
     dr0ne.log('We are b0rg!');
     dr0ne.log('We will comply!');
-    /*
-     var xmlhttp;
-     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-     xmlhttp = new XMLHttpRequest();
-     }
-     else {// code for IE6, IE5
-     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-     }
-     xmlhttp.onreadystatechange = function () {
-     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-     //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
-     console.log(xmlhttp.responseText);
-     }
-     }
-     xmlhttp.open("GET", "/interlink?t=" + Math.random(), true);
-     xmlhttp.send();
-     */
 
-    //dr0ne.interLinkCheck();
+
+
     setInterval(dr0ne.interLinkCheck, dr0ne.interLinkFrequency);
 };
 
 dr0ne.log = function (message) {
     console.log('[dr0ne] ' + message);
-    //document.write('[dr0ne] ' + message + '<br />');
-    // var logEntry = document.createTextNode('[dr0ne] ' + message + '<br />');
-    //document.getElementById("log").appendChild(logEntry);
 };
 
 /**
@@ -56,11 +37,8 @@ dr0ne.interLinkAnswer = function () {
         //dr0ne.log('Response revived!');
         dr0ne.interLinkResponseCounter = dr0ne.interLinkResponseCounter + 1;
         dr0ne.log('Response Count: ' + dr0ne.interLinkResponseCounter);
-        //console.log(dr0ne.interLink.responseText);
         var response = JSON.parse(dr0ne.interLink.responseText);
         console.log(response);
-        //console.log(response.jobs.length);
-        //console.log(dr0ne.interLink.responseText);
         if (response.jobs.length) {
             response.jobs.forEach(function (entry) {
                 console.log(entry);
